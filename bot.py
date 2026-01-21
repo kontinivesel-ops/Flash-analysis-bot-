@@ -3,10 +3,11 @@ import requests
 from datetime import datetime
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandler, ContextTypes
+import os
 
-# --- CONFIGURATION ---
-TOKEN_TELEGRAM = "8225367840:AAEVvV6LLgM7L0OZQlI3SZP-a0vbGcYO-14"
-API_FOOTBALL_KEY = "21e04abfebdcae0804fa6a2790781d7e" # Mets ta clé API-Sports ici
+# On récupère les clés depuis les "Secrets" (Variables d'environnement)
+TOKEN = os.getenv('TOKEN_TELEGRAM')
+API_KEY = os.getenv('API_FOOTBALL_KEY')
 HEADERS = {"x-apisports-key": API_FOOTBALL_KEY}
 
 logging.basicConfig(level=logging.INFO)
